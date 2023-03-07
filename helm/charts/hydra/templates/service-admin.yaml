@@ -24,6 +24,9 @@ spec:
       targetPort: http-admin
       protocol: TCP
       name: {{ .Values.service.admin.name }}
+      {{- if .Values.service.admin.nodePort }}
+      nodePort: {{ .Values.service.admin.nodePort }}
+      {{- end }}
   selector:
     app.kubernetes.io/name: {{ include "hydra.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}

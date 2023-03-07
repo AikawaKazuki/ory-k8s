@@ -140,12 +140,14 @@ A Helm chart for deploying ORY Hydra in Kubernetes
 | service.admin.metricsPath | string | `"/admin/metrics/prometheus"` | Path to the metrics endpoint |
 | service.admin.name | string | `"http"` | The service port name. Useful to set a custom service port name if it must follow a scheme (e.g. Istio) |
 | service.admin.port | int | `4445` | The service port |
+| service.admin.nodePort  | int | `""` | The service nodePort  |
 | service.admin.type | string | `"ClusterIP"` | The service type |
 | service.public | object | `{"annotations":{},"enabled":true,"labels":{},"name":"http","port":4444,"type":"ClusterIP"}` | Configures the Kubernetes service for the proxy port. |
 | service.public.annotations | object | `{}` | If you do want to specify annotations, uncomment the following lines, adjust them as necessary, and remove the curly braces after 'annotations:'. |
 | service.public.enabled | bool | `true` | En-/disable the service |
 | service.public.name | string | `"http"` | The service port name. Useful to set a custom service port name if it must follow a scheme (e.g. Istio) |
 | service.public.port | int | `4444` | The service port |
+| service.public.nodePort | int | `""`   | The service nodePort  |
 | service.public.type | string | `"ClusterIP"` | The service type |
 | serviceMonitor | object | `{"enabled":true,"labels":{},"scheme":"http","scrapeInterval":"60s","scrapeTimeout":"30s","tlsConfig":{}}` | Parameters for the Prometheus ServiceMonitor objects. Reference: https://docs.openshift.com/container-platform/4.6/rest_api/monitoring_apis/servicemonitor-monitoring-coreos-com-v1.html |
 | serviceMonitor.enabled | bool | `true` | switch to false to prevent creating the ServiceMonitor |
